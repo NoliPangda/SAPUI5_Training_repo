@@ -1,24 +1,52 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.acn.training.project1.controller.View1">
-    <Page id="page" title="{i18n>title}">
-    <content>
-        <Label text="First Name" width="100%" id="label0"/>
-    </content>
-    <footer>
-        <Toolbar width="100%" id="toolbar1">
-            <content>
-                <ToolbarSpacer id="spacer0"/>
-                <Button xmlns="sap.m" text="Save" id="button0" icon="sap-icon://save" type="Accept"/>
-            </content>
-        </Toolbar>
-    </footer>
-    <subHeader>
-        <Toolbar width="100%" id="toolbar2">
-            <content>
-                <Title xmlns="sap.m" text="SUB HEADER TITLE " id="title0"/>
-                <ToolbarSpacer id="spacer1"/>
-                <Button xmlns="sap.m" text="Button" id="button1"/>
-            </content>
-        </Toolbar>
-    </subHeader>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" controllerName="com.acn.training.project1.controller.View1">&gt;
+    <Page id="page">
+        <content>
+            <VBox width="100%" direction="Column" id="vboxForm1" backgroundDesign="Translucent" class="sapUiSmallMargin">
+                <items>
+                    <f:SimpleForm editable="true" layout="ResponsiveGridLayout" id="simpleform" columnsL="1" labelSpanL="3" labelSpanM="3" columnsXL="1" adjustLabelSpan="false">
+                        <f:content>
+                            <core:Title id="titleEX1"/>
+
+                            <!-- Name -->
+                            <Label text="Name" design="Bold" id="labelName"/>
+                            <Input width="50%" placeholder="Enter name" id="inputName"/>
+
+                            <!-- Street/No. -->
+                            <Label text="Street/No." id="labelStreetNo" design="Bold"/>
+                            <HBox width="50%" fitContainer="true" id="hboxStreetNo" renderType="Bare">
+                                <Input id="inputStreet" width="200%" placeholder="Street" fieldWidth="100%"/>
+                                <Input id="inputNo" width="100%" placeholder="No." class="sapUiTinyMarginBegin"/>
+                            </HBox>
+
+                            <!-- ZIP Code/City -->
+                            <Label text="ZIP Code/City" width="100%" id="labelZipCity" design="Bold"/>
+                            <HBox width="50%" id="hboxZipCity" renderType="Bare">
+                                <Input id="inputZip" width="100%" placeholder="ZIP Code"/>
+                                <Input id="inputCity" width="200%" placeholder="City" class="sapUiTinyMarginBegin"/>
+                            </HBox>
+
+                            <!-- Country -->
+                            <Label text="Country" design="Bold" id="labelCountry"/>
+                                <ComboBox id="cboxCountry" width="50%" placeholder="Select Country">
+                                <items>
+                                    <core:Item key="ENG" text="England" id="itemCountry1"/>
+                                    <core:Item key="DE" text="Germany" id="itemCountry2"/>
+                                    <core:Item key="US" text="USA" id="itemCountry3"/>
+                                    <core:Item key="PH" text="Philippines" id="itemCountry4"/>
+                                </items>
+                                </ComboBox>
+                        </f:content>
+                    </f:SimpleForm>
+
+                    <!-- Save and Clear -->
+                    <HBox width="98%" id="hboxSC1" class="sapUiSmallMarginTop" justifyContent="End" backgroundDesign="Translucent">
+                        <items>
+                            <Button text="Save" id="buttonSave" type="Accept" activeIcon="sap-icon://save" press=".onSave"/>
+                            <Button text="Clear" id="buttonClear" type="Reject" activeIcon="sap-icon://delete" class="sapUiSmallMarginBegin" press=".onClear"/>
+                        </items>
+                    </HBox>
+                </items>
+            </VBox>
+        </content>
     </Page>
 </mvc:View>
